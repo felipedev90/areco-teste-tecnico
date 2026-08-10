@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { cn } from '@/lib/cn'
 
 const NAV_ITEMS = [
   { href: '#mecanismo', label: 'O mecanismo' },
@@ -23,9 +24,10 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-ink transition-colors duration-200 ${
-        scrolled ? 'border-line-strong' : 'border-transparent'
-      }`}
+      className={cn(
+        'sticky top-0 z-50 border-b bg-ink transition-colors duration-200',
+        scrolled ? 'border-line-strong' : 'border-transparent',
+      )}
     >
       <div className="shell flex h-16 items-center justify-between">
         <Link href="/" className="font-mono text-sm tracking-wide text-paper">
