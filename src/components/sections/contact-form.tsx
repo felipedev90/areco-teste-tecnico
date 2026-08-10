@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { contactSchema, type ContactFormData } from '@/lib/contact-schema'
 import { cn } from '@/lib/cn'
+import { trackFormStep, trackFormSubmit } from '@/lib/analytics'
 
 type Step = 'contact' | 'company'
 
@@ -29,12 +30,16 @@ export function ContactForm() {
 
   async function handleNext() {
     const valid = await trigger(STEP_FIELDS.contact)
-    if (valid) setStep('company')
+    if (valid) {
+      trackFormStep({ step: 'company', direction: 'advance' })
+      setStep('company')
+    }
   }
 
   function onSubmit(data: ContactFormData) {
     // Escopo do desafio é front-end; sem endpoint real.
     console.log('contact-form:submit', data)
+    trackFormSubmit({ form_name: 'contact_iqf' })
     setSubmitted(true)
   }
 
@@ -115,8 +120,10 @@ export function ContactForm() {
                   </div>
                   <div className="mt-5 flex gap-3">
                     <button
-                      type="button"
-                      onClick={() => setStep('contact')}
+                      onClick={() => {
+                        trackFormStep({ step: 'contact', direction: 'back' })
+                        setStep('contact')
+                      }}
                       className="rounded-xs border border-line-strong px-6 py-3 text-sm font-medium text-on-dark transition-colors hover:border-paper hover:text-paper"
                     >
                       Voltar
