@@ -4,6 +4,7 @@ import { CostSection } from '@/components/sections/cost-section'
 import { IqfSection } from '@/components/sections/iqf-section'
 import { ProcessFlow } from '@/components/sections/process-flow'
 import { CoverageSection } from '@/components/sections/coverage-section'
+import { FaqSection } from '@/components/sections/faq-section'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <IqfSection />
         <ProcessFlow />
         <CoverageSection />
+        <FaqSection />
       </main>
     </>
   )
