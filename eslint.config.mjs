@@ -16,6 +16,9 @@ const eslintConfig = defineConfig([
     'test-results/**',
     'next-env.d.ts',
   ]),
+  {
+    ignores: ['tests/load/**'],
+  },
 ])
 
 export default eslintConfig
