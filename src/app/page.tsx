@@ -7,10 +7,19 @@ import { ProcessFlow } from '@/components/sections/process-flow'
 import { CoverageSection } from '@/components/sections/coverage-section'
 import { FaqSection } from '@/components/sections/faq-section'
 import { ContactForm } from '@/components/sections/contact-form'
+import { getSoftwareApplicationSchema, getFaqSchema } from '@/lib/structured-data'
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getSoftwareApplicationSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqSchema()) }}
+      />
       <Header />
       <main>
         <Hero />
