@@ -1,4 +1,7 @@
+'use client'
+
 import { ControlChart } from '@/components/ui/control-chart'
+import { trackCtaClick } from '@/lib/analytics'
 
 export function Hero() {
   return (
@@ -20,12 +23,24 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#contato"
+              onClick={() =>
+                trackCtaClick({
+                  cta_label: 'Falar com um especialista',
+                  cta_location: 'hero_primary',
+                })
+              }
               className="rounded-xs bg-signal px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-90"
             >
               Falar com um especialista
             </a>
             <a
               href="#mecanismo"
+              onClick={() =>
+                trackCtaClick({
+                  cta_label: 'Ver como o índice funciona',
+                  cta_location: 'hero_secondary',
+                })
+              }
               className="rounded-xs border border-line-strong px-6 py-3 text-sm font-medium text-on-dark transition-colors hover:border-paper hover:text-paper"
             >
               Ver como o índice funciona

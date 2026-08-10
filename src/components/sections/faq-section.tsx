@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { FAQ_ITEMS } from '@/data/faq-items'
 import { cn } from '@/lib/cn'
+import { trackFaqToggle } from '@/lib/analytics'
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -22,7 +23,14 @@ export function FaqSection() {
               <li key={item.question} className="border-t border-line last:border-b">
                 <button
                   type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  onClick={() => {
+                    const next = isOpen ? null : index
+                    trackFaqToggle({
+                      question: item.question,
+                      state: next === null ? 'close' : 'open',
+                    })
+                    setOpenIndex(next)
+                  }}
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-6 py-5 text-left"
                 >
