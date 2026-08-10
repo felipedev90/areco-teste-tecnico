@@ -2,6 +2,8 @@ import { Header } from '@/components/layout/header'
 import { Hero } from '@/components/sections/hero'
 import { CostSection } from '@/components/sections/cost-section'
 import { IqfSection } from '@/components/sections/iqf-section'
+import { ProcessFlow } from '@/components/sections/process-flow'
+import { CoverageSection } from '@/components/sections/coverage-section'
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
         <Hero />
         <CostSection />
         <IqfSection />
+        <ProcessFlow />
+        <CoverageSection />
       </main>
     </>
   )
