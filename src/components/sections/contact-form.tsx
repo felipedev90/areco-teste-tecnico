@@ -97,7 +97,7 @@ export function ContactForm() {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="mt-5 rounded-xs bg-signal-bright px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-90"
+                    className="mt-5 rounded-xs bg-signal px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-90"
                   >
                     Próximo
                   </button>
