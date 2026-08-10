@@ -6,8 +6,12 @@ import { IqfSection } from '@/components/sections/iqf-section'
 import { ProcessFlow } from '@/components/sections/process-flow'
 import { CoverageSection } from '@/components/sections/coverage-section'
 import { FaqSection } from '@/components/sections/faq-section'
-import { ContactForm } from '@/components/sections/contact-form'
 import { getSoftwareApplicationSchema, getFaqSchema } from '@/lib/structured-data'
+import dynamic from 'next/dynamic'
+
+const ContactForm = dynamic(() =>
+  import('@/components/sections/contact-form').then((mod) => mod.ContactForm),
+)
 
 export default function Home() {
   return (
