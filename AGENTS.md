@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 <!-- END:nextjs-agent-rules -->
 
-# CLAUDE.md — Convenções do projeto
+# AGENTS.md — Convenções do projeto
 
 Documento de referência pra manter consistência entre sessões de trabalho com IA e entre humanos.
 
@@ -18,37 +18,38 @@ Documento de referência pra manter consistência entre sessões de trabalho com
 - Tailwind v4 (CSS-first, design tokens em globals.css)
 - ESLint 9 (flat config) + Prettier
 - Husky + lint-staged + commitlint
+- React Hook Form + Zod
+- Vitest + Testing Library
+- k6
 
 ## Git
 
 - Conventional Commits com scope obrigatório em kebab-case
-- Exemplo: `feat(hero): add cta button`, `chore(config): update tsconfig`
-- Branches: `feat/*`, `fix/*`, `chore/*`, `refactor/*`, `test/*`
-- Branch base: `main` (protegida via CI verde)
+- Exemplo: `feat(hero): adiciona cta duplo`, `fix(a11y): corrige contraste`
+- Branches: `feat/*`, `fix/*`, `chore/*`, `refactor/*`, `test/*`, `docs/*`
+- Branch base: `main`
 
 ## Estrutura de pastas
 
-- `src/components/ui/` — primitivos reutilizáveis
-- `src/components/sections/` — composições específicas
-- `src/components/layout/` — Nav, MenuOverlay
-- `src/data/` — fonte única de dados (UPPER_SNAKE_CASE constants)
+- `src/components/ui/` — primitivos reutilizáveis (ex: ControlChart)
+- `src/components/sections/` — composições de seção da página
+- `src/components/layout/` — Header, Footer
+- `src/data/` — fonte única de dados (`as const satisfies Type`)
 - `src/types/` — tipagens compartilhadas
-- `src/lib/` — utilities puras
-- `src/hooks/` — custom hooks
+- `src/lib/` — utilities puras (cn, analytics, schemas)
 
 ## Nomenclatura
 
-- Componentes: PascalCase (`Button.tsx`, `Hero.tsx`)
-- Demais arquivos: kebab-case (`cta.ts`, `use-scroll.ts`)
+- Componentes: PascalCase (`Header.tsx`, `IqfSection.tsx`)
+- Demais arquivos: kebab-case (`contact-schema.ts`, `use-scroll.ts`)
 - Identifiers: inglês sempre
 - Conteúdo/strings para usuário: pt-BR
-- Constantes de config: UPPER_SNAKE_CASE
+- Constantes de dado: UPPER_SNAKE_CASE
 
 ## TypeScript
 
 - `import type { X }` pra tipos puros
 - `as const satisfies Type` pra dados estáticos com validação
-- Dados em `/data` e tipos em `/types` não importam de libs de UI
 - Evitar `any`; usar `unknown` + narrowing quando tipo é incerto
 
 ## Acessibilidade
@@ -56,17 +57,15 @@ Documento de referência pra manter consistência entre sessões de trabalho com
 - Target: WCAG 2.1 AA
 - Ícones decorativos: `aria-hidden`
 - `prefers-reduced-motion` respeitado
-- Contraste mínimo 4.5:1 em texto normal
+- Contraste mínimo 4.5:1 — validado com Lighthouse, ver README
 
-## Performance budget
+## Performance (resultado real, ver README)
 
-- Lighthouse target: Performance 98, A11y 100, Best Practices 100, SEO 100
-- Bundle JS inicial: < 150kb gzipped
-- LCP: < 1.5s
-- CLS: 0
+- Lighthouse: Performance 99, A11y 100, Best Practices 100, SEO 100
+- LCP: texto (`<h1>`), sem imagem crítica acima da dobra
 
 ## Design tokens (globals.css)
 
-- Cores: sand, accent, bg, etc (prefixo `--color-*`)
-- Fontes: `--font-serif` (Fraunces), `--font-sans` (DM Sans)
-- Gerar classes Tailwind automaticamente via `@theme inline`
+- Cores semânticas por função: `signal` (desvio/ação), `conform` (conformidade), não `primary`/`secondary`
+- Fontes: `--font-plex-sans` (corpo), `--font-plex-mono` (dado tabular)
+- Classes geradas via `@theme` (Tailwind v4, CSS-first)
