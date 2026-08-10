@@ -12,8 +12,9 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-lead text-on-dark">
-            Cada recebimento, cada inspeção e cada devolução viram um único indicador por fornecedor: 
-            parametrizado, calculado em tempo real e conectado direto à decisão de compra.
+            Cada recebimento, cada inspeção e cada devolução viram um único indicador por
+            fornecedor: parametrizado, calculado em tempo real e conectado direto à decisão de
+            compra.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">

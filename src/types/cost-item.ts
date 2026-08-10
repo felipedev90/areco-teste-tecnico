@@ -1,6 +1,5 @@
 export type CostItem = {
-  code: string;
-  label: string;
-  description: string;
-};
-
+  code: string
+  label: string
+  description: string
+}

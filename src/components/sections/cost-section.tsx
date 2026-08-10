@@ -1,4 +1,4 @@
-import { COST_ITEMS } from '@/data/cost-items';
+import { COST_ITEMS } from '@/data/cost-items'
 
 export function CostSection() {
   return (
@@ -15,28 +15,20 @@ export function CostSection() {
           {COST_ITEMS.map((item, index) => (
             <li
               key={item.code}
-              className={`flex gap-6 py-6 ${
-                index !== 0 ? 'border-t border-line' : ''
-              }`}
+              className={`flex gap-6 py-6 ${index !== 0 ? 'border-t border-line' : ''}`}
             >
-              <span
-                className="font-mono text-sm text-muted"
-                data-numeric
-                aria-hidden="true"
-              >
+              <span className="font-mono text-sm text-muted" data-numeric aria-hidden="true">
                 {item.code}
               </span>
 
               <div>
                 <p className="text-h3 font-medium text-ink">{item.label}</p>
-                <p className="mt-1 max-w-lg text-base text-muted">
-                  {item.description}
-                </p>
+                <p className="mt-1 max-w-lg text-base text-muted">{item.description}</p>
               </div>
             </li>
           ))}
         </ol>
       </div>
     </section>
-  );
+  )
 }
