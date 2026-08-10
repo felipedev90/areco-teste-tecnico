@@ -46,14 +46,15 @@ Ambos os pontos têm aviso textual visível na própria página. Os nomes dos cr
 
 Lighthouse (produção, mobile):
 
-| Métrica | Nota |
-|---|---|
-| Performance | 99 |
-| Accessibility | 100 |
-| Best Practices | 100 |
-| SEO | 100 |
+| Métrica        | Nota |
+| -------------- | ---- |
+| Performance    | 99   |
+| Accessibility  | 100  |
+| Best Practices | 100  |
+| SEO            | 100  |
 
 Decisões que sustentam esses números:
+
 - Server Components por padrão — `'use client'` só nos 4 componentes com estado real (Header, Hero, FAQ, Formulário)
 - Fontes via `next/font`, sem requisição externa ao Google em produção
 - LCP é texto (`<h1>` do Hero), não imagem
@@ -69,12 +70,12 @@ Decisões que sustentam esses números:
 
 Camada de analytics centralizada em `src/lib/analytics.ts`: cada tipo de evento é uma função tipada, não um `push` solto repetido pelo código. Convenção `snake_case`, compatível nativamente com GTM/GA4.
 
-| Evento | Quando dispara | Payload |
-|---|---|---|
-| `cta_click` | Clique em qualquer CTA da página | `cta_label`, `cta_location` |
-| `form_step` | Avanço ou retorno entre passos do formulário | `form_step`, `step_direction` |
-| `form_submit` | Envio do formulário completo | `form_name` |
-| `faq_toggle` | Abertura ou fechamento de pergunta | `faq_question`, `faq_state` |
+| Evento        | Quando dispara                               | Payload                       |
+| ------------- | -------------------------------------------- | ----------------------------- |
+| `cta_click`   | Clique em qualquer CTA da página             | `cta_label`, `cta_location`   |
+| `form_step`   | Avanço ou retorno entre passos do formulário | `form_step`, `step_direction` |
+| `form_submit` | Envio do formulário completo                 | `form_name`                   |
+| `faq_toggle`  | Abertura ou fechamento de pergunta           | `faq_question`, `faq_state`   |
 
 `section_view` foi desenhado mas não implementado — exige `IntersectionObserver`, deixado como próximo passo por escopo de tempo.
 
