@@ -52,7 +52,7 @@ export function IqfSection() {
                   {c.code}
                 </td>
                 <td className="py-4 pr-4 text-base text-paper">{c.label}</td>
-                <td className="py-4 pr-4 font-mono text-sm text-signal" data-numeric>
+                <td className="py-4 pr-4 font-mono text-sm text-signal-bright" data-numeric>
                   {c.weight}
                 </td>
                 <td className="py-4 text-sm text-on-dark-muted">{c.source}</td>
