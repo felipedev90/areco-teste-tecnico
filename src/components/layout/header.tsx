@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/cn'
+import { trackCtaClick } from '@/lib/analytics'
 
 const NAV_ITEMS = [
   { href: '#mecanismo', label: 'O mecanismo' },
@@ -49,6 +50,9 @@ export function Header() {
         <a
           href="#contato"
           className="rounded-xs bg-signal px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-90"
+          onClick={() =>
+            trackCtaClick({ cta_label: 'Falar com especialista', cta_location: 'header' })
+          }
         >
           Falar com especialista
         </a>
