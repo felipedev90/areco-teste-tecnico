@@ -5,7 +5,7 @@ export const COST_ITEMS = [
     code: '01',
     label: 'Devolução',
     description:
-      'Produto ou lote retorna após a entrega — o custo do frete de volta some com o custo original.',
+      'Produto ou lote retorna após a entrega, o custo do frete de volta some com o custo original.',
   },
   {
     code: '02',
@@ -17,7 +17,7 @@ export const COST_ITEMS = [
     code: '03',
     label: 'Perda de cliente',
     description:
-      'Uma não conformidade recorrente não gera reclamação — gera silêncio, e o próximo pedido não chega.',
+      'Uma não conformidade recorrente não gera reclamação, gera silêncio, e o próximo pedido não chega.',
   },
   {
     code: '04',
