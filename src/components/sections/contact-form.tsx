@@ -37,7 +37,7 @@ export function ContactForm() {
   }
 
   function onSubmit(data: ContactFormData) {
-    // Escopo do desafio é front-end; sem endpoint real.
+    // Sem integração real, apenas log para simular envio
     console.log('contact-form:submit', data)
     trackFormSubmit({ form_name: 'contact_iqf' })
     setSubmitted(true)
@@ -66,7 +66,7 @@ export function ContactForm() {
           ) : (
             <>
               <p className="mb-6 font-mono text-sm text-on-dark-muted" data-numeric>
-                Passo {step === 'contact' ? '1' : '2'} de 2 —{' '}
+                Passo {step === 'contact' ? '1' : '2'} de 2 -{' '}
                 {step === 'contact' ? 'Contato' : 'Empresa'}
               </p>
 

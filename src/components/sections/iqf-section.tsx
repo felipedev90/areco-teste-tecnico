@@ -4,13 +4,11 @@ export function IqfSection() {
   return (
     <section id="mecanismo" className="band-loose bg-ink text-paper">
       <div className="shell max-w-3xl">
-        <p className="eyebrow mb-4 text-on-dark-muted">O mecanismo</p>
         <h2 className="text-h2 font-medium tracking-tight text-balance">
           O índice não é relatório. É regra de operação.
         </h2>
         <p className="mt-6 text-lead text-on-dark">
-          Fornecedor abaixo do corte é alertado ou bloqueado antes da compra sair, não depois, em
-          relatório de fechamento.
+          Fornecedor abaixo do corte é alertado ou bloqueado antes da compra sair.
         </p>
       </div>
 
