@@ -53,7 +53,7 @@ export function Hero() {
             className="absolute -inset-16 rounded-full bg-signal opacity-[0.06] blur-3xl"
             aria-hidden="true"
           />
-          <div className="drift relative">
+          <div className="animate-drift relative">
             <ControlChart />
           </div>
         </div>

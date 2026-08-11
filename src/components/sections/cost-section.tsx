@@ -4,7 +4,7 @@ export function CostSection() {
   return (
     <section className="band border-b border-line bg-paper">
       <div className="shell grid gap-10 md:grid-cols-12 md:gap-16">
-        <div className="md:col-span-4">
+        <div className="flex items-center md:col-span-4">
           <h2 className="text-h2 font-medium tracking-tight text-balance mt-4">
             Economia em inspeção volta como prejuízo em margem.
           </h2>
