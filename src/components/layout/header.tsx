@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { trackCtaClick } from '@/lib/analytics'
 
@@ -48,11 +47,11 @@ export function Header() {
       )}
     >
       <div className="shell flex h-16 items-center justify-between">
-        <Link href="/" className="font-mono text-sm tracking-wide text-paper">
+        <a href="#hero" className="font-mono text-sm tracking-wide text-paper">
           VSat<span className="text-signal">·</span>Qualidade
-        </Link>
+        </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
@@ -66,7 +65,7 @@ export function Header() {
 
         <a
           href="#contato"
-          className="hidden rounded-xs bg-signal px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-90 md:inline-block"
+          className="hidden rounded-xs bg-signal px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-90 lg:inline-block"
           onClick={() =>
             trackCtaClick({ cta_label: 'Falar com um especialista', cta_location: 'header' })
           }
@@ -79,7 +78,7 @@ export function Header() {
           onClick={() => setMenuOpen((v) => !v)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-          className="flex h-9 w-9 cursor-pointer items-center justify-center md:hidden"
+          className="flex h-9 w-9 cursor-pointer items-center justify-center lg:hidden"
         >
           <span className="relative block h-4 w-5">
             <span
@@ -105,7 +104,7 @@ export function Header() {
       </div>
 
       {menuOpen ? (
-        <div className="border-t border-line-strong/40 bg-ink md:hidden">
+        <div className="border-t border-line-strong/40 bg-ink lg:hidden">
           <nav className="shell flex flex-col gap-1 py-4">
             {NAV_ITEMS.map((item) => (
               <a
