@@ -32,7 +32,7 @@ export function FaqSection() {
                     setOpenIndex(next)
                   }}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-6 py-5 text-left cursor-pointer"
                 >
                   <span className="text-base font-medium text-ink">{item.question}</span>
                   <span
