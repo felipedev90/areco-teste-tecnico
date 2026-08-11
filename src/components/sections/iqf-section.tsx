@@ -21,8 +21,11 @@ export function IqfSection() {
             <li key={c.code} className="py-4">
               <div className="flex items-baseline justify-between gap-4">
                 <span className="text-base text-paper">{c.label}</span>
-                <span className="font-mono text-sm text-on-dark" data-numeric>
-                  {c.weight}
+                <span className="flex items-baseline gap-1.5">
+                  <span className="font-mono text-xs text-on-dark-muted">peso</span>
+                  <span className="font-mono text-sm text-on-dark" data-numeric>
+                    {c.weight}
+                  </span>
                 </span>
               </div>
               <div className="mt-1 flex gap-3 text-sm text-on-dark-muted">
