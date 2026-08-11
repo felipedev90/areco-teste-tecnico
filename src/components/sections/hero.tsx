@@ -5,22 +5,22 @@ import { trackCtaClick } from '@/lib/analytics'
 
 export function Hero() {
   return (
-    <section className="bg-ink text-paper">
+    <section className="bg-ink text-paper" id="hero">
       <div className="shell band-loose grid gap-12 md:grid-cols-12 md:items-center">
         <div className="md:col-span-7">
           <p className="eyebrow mb-6 text-on-dark-muted">VSat ERP · Controle de Qualidade</p>
 
           <h1 className="text-display font-medium tracking-tight text-balance">
-            O índice que impede o pedido errado de sair.
+            O <span className="text-signal-mid">índice</span> que{' '}
+            <span className="text-signal-mid">impede</span> o pedido errado de sair.
           </h1>
 
           <p className="mt-6 max-w-xl text-lead text-on-dark">
-            Cada recebimento, cada inspeção e cada devolução viram um único indicador por
-            fornecedor: parametrizado, calculado em tempo real e conectado direto à decisão de
-            compra.
+            Cada recebimento, inspeção e devolução viram um único indicador por fornecedor:
+            parametrizado, calculado em tempo real e conectado direto à decisão de compra.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href="#contato"
               onClick={() =>
@@ -29,7 +29,7 @@ export function Hero() {
                   cta_location: 'hero_primary',
                 })
               }
-              className="rounded-xs bg-signal px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-90"
+              className="rounded-xs border border-signal bg-signal px-6 py-3 text-center text-sm font-medium text-paper transition-opacity hover:opacity-90 sm:w-auto"
             >
               Falar com um especialista
             </a>
@@ -41,7 +41,7 @@ export function Hero() {
                   cta_location: 'hero_secondary',
                 })
               }
-              className="rounded-xs border border-line-strong px-6 py-3 text-sm font-medium text-on-dark transition-colors hover:border-paper hover:text-paper"
+              className="rounded-xs border border-line-strong px-6 py-3 text-center text-sm font-medium text-on-dark transition-colors hover:border-paper hover:text-paper sm:w-auto"
             >
               Ver como o índice funciona
             </a>

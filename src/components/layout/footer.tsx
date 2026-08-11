@@ -20,8 +20,8 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="border-t border-line-strong/40 bg-ink text-paper">
-      <div className="shell band-tight grid gap-10 md:grid-cols-12">
-        <div className="md:col-span-4">
+      <div className="shell band-tight grid gap-10 md:grid-cols-12 text-center md:text-left">
+        <div className="md:col-span-4 text-center md:text-left m-auto">
           <p className="font-mono text-sm tracking-wide">
             VSat<span className="text-signal">·</span>Qualidade
           </p>
@@ -47,7 +47,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-line-strong/40">
-        <div className="shell flex flex-col gap-2 py-6 text-xs text-on-dark-muted sm:flex-row sm:justify-between">
+        <div className="shell flex flex-col gap-2 py-6 text-xs text-on-dark-muted sm:flex-row sm:justify-between text-center">
           <p>Projeto de teste técnico, não afiliado oficialmente à Areco.</p>
           <p>Desenvolvido por Felipe Augusto</p>
         </div>

@@ -4,13 +4,11 @@ export function IqfSection() {
   return (
     <section id="mecanismo" className="band-loose bg-ink text-paper">
       <div className="shell max-w-3xl">
-        <p className="eyebrow mb-4 text-on-dark-muted">O mecanismo</p>
         <h2 className="text-h2 font-medium tracking-tight text-balance">
           O índice não é relatório. É regra de operação.
         </h2>
         <p className="mt-6 text-lead text-on-dark">
-          Fornecedor abaixo do corte é alertado ou bloqueado antes da compra sair, não depois, em
-          relatório de fechamento.
+          Fornecedor abaixo do corte é alertado ou bloqueado antes da compra sair.
         </p>
       </div>
 
@@ -21,8 +19,11 @@ export function IqfSection() {
             <li key={c.code} className="py-4">
               <div className="flex items-baseline justify-between gap-4">
                 <span className="text-base text-paper">{c.label}</span>
-                <span className="font-mono text-sm text-on-dark" data-numeric>
-                  {c.weight}
+                <span className="flex items-baseline gap-1.5">
+                  <span className="font-mono text-xs text-on-dark-muted">peso</span>
+                  <span className="font-mono text-sm text-on-dark" data-numeric>
+                    {c.weight}
+                  </span>
                 </span>
               </div>
               <div className="mt-1 flex gap-3 text-sm text-on-dark-muted">
