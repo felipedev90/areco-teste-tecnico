@@ -5,7 +5,7 @@ import { trackCtaClick } from '@/lib/analytics'
 
 export function Hero() {
   return (
-    <section className="bg-ink text-paper" id="hero">
+    <section className="bg-ink text-paper overflow-hidden" id="hero">
       <div className="shell band-loose grid gap-12 md:grid-cols-12 md:items-center">
         <div className="md:col-span-7">
           <p className="eyebrow mb-6 text-on-dark-muted">VSat ERP · Controle de Qualidade</p>
@@ -48,8 +48,14 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="md:col-span-5">
-          <ControlChart />
+        <div className="relative md:col-span-5">
+          <div
+            className="absolute -inset-16 rounded-full bg-signal opacity-[0.06] blur-3xl"
+            aria-hidden="true"
+          />
+          <div className="drift relative">
+            <ControlChart />
+          </div>
         </div>
       </div>
     </section>
