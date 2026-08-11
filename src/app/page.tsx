@@ -8,6 +8,7 @@ import { CoverageSection } from '@/components/sections/coverage-section'
 import { FaqSection } from '@/components/sections/faq-section'
 import { getSoftwareApplicationSchema, getFaqSchema } from '@/lib/structured-data'
 import dynamic from 'next/dynamic'
+import { Reveal } from '@/components/ui/reveal'
 
 const ContactForm = dynamic(() =>
   import('@/components/sections/contact-form').then((mod) => mod.ContactForm),
@@ -26,13 +27,27 @@ export default function Home() {
       />
       <Header />
       <main>
-        <Hero />
-        <CostSection />
-        <IqfSection />
-        <ProcessFlow />
-        <CoverageSection />
-        <FaqSection />
-        <ContactForm />
+        <Reveal>
+          <Hero />
+        </Reveal>
+        <Reveal>
+          <CostSection />
+        </Reveal>
+        <Reveal>
+          <IqfSection />
+        </Reveal>
+        <Reveal>
+          <ProcessFlow />
+        </Reveal>
+        <Reveal>
+          <CoverageSection />
+        </Reveal>
+        <Reveal>
+          <FaqSection />
+        </Reveal>
+        <Reveal>
+          <ContactForm />
+        </Reveal>
       </main>
       <Footer />
     </>
