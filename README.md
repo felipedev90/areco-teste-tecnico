@@ -11,18 +11,18 @@ Desafio técnico para a vaga de Desenvolvedor Front-end (Marketing Data & Perfor
 
 ## Conceito
 
-O módulo de Controle de Qualidade do VSat ERP hoje é apresentado numa página institucional densa, com abas que escondem a maior parte do conteúdo. Este projeto reestrutura esse conteúdo como landing page de conversão, com uma decisão central: promover o Índice de Qualidade de Fornecedor (IQF) — hoje a terceira de três abas — a mecanismo central da narrativa. É o único diferencial do produto frente a um QMS genérico: laudos e não-conformidade qualquer concorrente tem; um índice que bloqueia a compra de um fornecedor mal avaliado, antes do pedido sair, é específico.
+O módulo de Controle de Qualidade do VSat ERP hoje é apresentado numa página institucional densa, com abas que escondem a maior parte do conteúdo. Este projeto reestrutura esse conteúdo como landing page de conversão, com uma decisão central: promover o Índice de Qualidade de Fornecedor (IQF), hoje a terceira de três abas, a mecanismo central da narrativa. É o único diferencial do produto frente a um QMS genérico: laudos e não-conformidade qualquer concorrente tem; um índice que bloqueia a compra de um fornecedor mal avaliado, antes do pedido sair, é específico.
 
 ## Direção visual
 
-A linguagem visual deriva do domínio do produto — metrologia, documentação técnica industrial — em vez de um estilo genérico de SaaS. Decisões centrais:
+A linguagem visual deriva do domínio do produto, metrologia, documentação técnica industrial, em vez de um estilo genérico de SaaS. Decisões centrais:
 
 - **Cor com função semântica, não decorativa.** Os tokens não se chamam `primary`/`secondary`; chamam-se `signal` (desvio, ação) e `conform` (conformidade). A cor de destaque só aparece onde há ação ou desvio real.
-- **Tipografia única com variante mono.** IBM Plex Sans + IBM Plex Mono, mesma família tipográfica — números de tabela e texto corrido convivem sem ruído visual.
+- **Tipografia única com variante mono.** IBM Plex Sans + IBM Plex Mono, mesma família tipográfica, números de tabela e texto corrido convivem sem ruído visual.
 - **Filete no lugar de card com sombra.** Separação de seções por linha fina de 1px, não caixa elevada.
-- **Grid assimétrico.** Colunas 7/5 ou 4/8, não 6/6 — evita a simetria perfeita comum em páginas geradas por template.
-- **Movimento com propósito, não decoração.** O gráfico do Hero (carta de controle) tem flutuação sutil (`animate-drift`) e glow radial — reforça a leitura de "instrumento vivo" sem competir com o texto. Seções de conteúdo têm entrada suave ao rolar (`Reveal`, via `IntersectionObserver`), desativada automaticamente se o usuário tiver `prefers-reduced-motion` ativado.
-- **Navegação responsiva completa.** Menu hambúrguer com scroll travado enquanto aberto, mantido até o breakpoint de tablet — não só mobile estrito.
+- **Grid assimétrico.** Colunas 7/5 ou 4/8, não 6/6, evita a simetria perfeita comum em páginas geradas por template.
+- **Movimento com propósito, não decoração.** O gráfico do Hero (carta de controle) tem flutuação sutil (`animate-drift`) e glow radial, reforça a leitura de "instrumento vivo" sem competir com o texto. Seções de conteúdo têm entrada suave ao rolar (`Reveal`, via `IntersectionObserver`), desativada automaticamente se o usuário tiver `prefers-reduced-motion` ativado.
+- **Navegação responsiva completa.** Menu hambúrguer com scroll travado enquanto aberto, mantido até o breakpoint de tablet, não só mobile estrito.
 
 ## Stack
 
@@ -39,7 +39,7 @@ Partiu de um [starter próprio](https://github.com/felipedev90/next-starter) com
 
 Alguns dados numéricos foram construídos para dar forma concreta ao mecanismo descrito na documentação pública da Areco, e não representam números reais do produto:
 
-- Pesos de critério na tabela do IQF (seção "O mecanismo")
+- Pesos de critério na tabela do IQF
 - Respostas da seção de perguntas de implementação
 
 Ambos os pontos têm aviso textual visível na própria página. Os nomes dos critérios, funcionalidades listadas na seção de cobertura e a proposta de valor central vêm da documentação pública do produto.
@@ -50,19 +50,19 @@ Lighthouse (produção, mobile):
 
 | Métrica        | Nota |
 | -------------- | ---- |
-| Performance    | 93   |
+| Performance    | 97   |
 | Accessibility  | 100  |
 | Best Practices | 100  |
 | SEO            | 100  |
 
 Decisões que sustentam esses números:
 
-- Server Components por padrão — `'use client'` só nos componentes com estado real (Header, Hero, FAQ, Formulário, Reveal)
+- Server Components por padrão, `'use client'` só nos componentes com estado real (Header, Hero, FAQ, Formulário, Reveal)
 - Fontes via `next/font`, sem requisição externa ao Google em produção
 - LCP é texto (`<h1>` do Hero), não imagem
-- Correção de contraste de cor aplicada em ambas as versões (desktop e mobile) de cada componente — ver histórico de commits para o processo de diagnóstico
-- Imagem única da página (seção "Da inspeção à decisão") servida via `next/image` com `loading="lazy"` — abaixo da dobra, sem impacto no LCP
-- Queda de 99 para 93 atribuída à imagem adicionada e à animação contínua (`animate-drift`) no gráfico do Hero — trade-off deliberado entre performance pura e percepção de qualidade visual
+- Correção de contraste de cor aplicada em ambas as versões (desktop e mobile) de cada componente, ver histórico de commits para o processo de diagnóstico
+- Imagem única da página (seção "Da inspeção à decisão") servida via `next/image` com `loading="lazy"`, abaixo da dobra, sem impacto no LCP
+- Queda de 99 para 93 atribuída à imagem adicionada e à animação contínua (`animate-drift`) no gráfico do Hero, trade-off deliberado entre performance pura e percepção de qualidade visual
 
 ## SEO técnico
 
