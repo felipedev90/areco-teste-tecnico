@@ -59,6 +59,19 @@
   /* --- Raio ----------------------------------------------------- */
   --radius-xs: 2px;
   --radius-sm: 3px;
+
+  /* --- Animação --------------------------------------------------- */
+  --animate-drift: drift 6s ease-in-out infinite;
+
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
 @layer base {
@@ -166,25 +179,5 @@
   .reveal-visible {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  @keyframes drift {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .drift {
-    animation: drift 6s ease-in-out infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .drift {
-      animation: none;
-    }
   }
 }
