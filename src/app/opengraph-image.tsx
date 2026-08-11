@@ -36,15 +36,21 @@ export default function OgImage() {
       <div
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
           fontSize: 64,
           fontWeight: 600,
           color: '#ffffff',
-          lineHeight: 1.1,
-          maxWidth: 900,
+          lineHeight: 1.15,
+          maxWidth: 950,
+          columnGap: 18,
+          rowGap: 8,
         }}
       >
-        O <span style={{ color: '#e0713f', margin: '0 16px' }}>índice</span> que{' '}
-        <span style={{ color: '#e0713f', margin: '0 16px' }}>impede</span> o pedido errado de sair.
+        <span>O</span>
+        <span style={{ color: '#e0713f' }}>índice</span>
+        <span>que</span>
+        <span style={{ color: '#e0713f' }}>impede</span>
+        <span>o pedido errado de sair.</span>
       </div>
     </div>,
     { ...size },
