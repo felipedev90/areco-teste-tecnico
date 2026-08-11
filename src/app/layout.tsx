@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Controle de Qualidade | VSat ERP',
+    description: 'O índice de qualidade de fornecedor que bloqueia a compra antes do prejuízo.',
+  },
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
