@@ -20,7 +20,7 @@ export function Hero() {
             compra.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href="#contato"
               onClick={() =>
@@ -29,7 +29,7 @@ export function Hero() {
                   cta_location: 'hero_primary',
                 })
               }
-              className="rounded-xs bg-signal px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-90"
+              className="rounded-xs border border-signal bg-signal px-6 py-3 text-center text-sm font-medium text-paper transition-opacity hover:opacity-90 sm:w-auto"
             >
               Falar com um especialista
             </a>
@@ -41,7 +41,7 @@ export function Hero() {
                   cta_location: 'hero_secondary',
                 })
               }
-              className="rounded-xs border border-line-strong px-6 py-3 text-sm font-medium text-on-dark transition-colors hover:border-paper hover:text-paper"
+              className="rounded-xs border border-line-strong px-6 py-3 text-center text-sm font-medium text-on-dark transition-colors hover:border-paper hover:text-paper sm:w-auto"
             >
               Ver como o índice funciona
             </a>
