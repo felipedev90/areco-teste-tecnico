@@ -21,6 +21,8 @@ A linguagem visual deriva do domínio do produto — metrologia, documentação 
 - **Tipografia única com variante mono.** IBM Plex Sans + IBM Plex Mono, mesma família tipográfica — números de tabela e texto corrido convivem sem ruído visual.
 - **Filete no lugar de card com sombra.** Separação de seções por linha fina de 1px, não caixa elevada.
 - **Grid assimétrico.** Colunas 7/5 ou 4/8, não 6/6 — evita a simetria perfeita comum em páginas geradas por template.
+- **Movimento com propósito, não decoração.** O gráfico do Hero (carta de controle) tem flutuação sutil (`animate-drift`) e glow radial — reforça a leitura de "instrumento vivo" sem competir com o texto. Seções de conteúdo têm entrada suave ao rolar (`Reveal`, via `IntersectionObserver`), desativada automaticamente se o usuário tiver `prefers-reduced-motion` ativado.
+- **Navegação responsiva completa.** Menu hambúrguer com scroll travado enquanto aberto, mantido até o breakpoint de tablet — não só mobile estrito.
 
 ## Stack
 
@@ -48,17 +50,19 @@ Lighthouse (produção, mobile):
 
 | Métrica        | Nota |
 | -------------- | ---- |
-| Performance    | 99   |
+| Performance    | 93   |
 | Accessibility  | 100  |
 | Best Practices | 100  |
 | SEO            | 100  |
 
 Decisões que sustentam esses números:
 
-- Server Components por padrão — `'use client'` só nos 4 componentes com estado real (Header, Hero, FAQ, Formulário)
+- Server Components por padrão — `'use client'` só nos componentes com estado real (Header, Hero, FAQ, Formulário, Reveal)
 - Fontes via `next/font`, sem requisição externa ao Google em produção
 - LCP é texto (`<h1>` do Hero), não imagem
 - Correção de contraste de cor aplicada em ambas as versões (desktop e mobile) de cada componente — ver histórico de commits para o processo de diagnóstico
+- Imagem única da página (seção "Da inspeção à decisão") servida via `next/image` com `loading="lazy"` — abaixo da dobra, sem impacto no LCP
+- Queda de 99 para 93 atribuída à imagem adicionada e à animação contínua (`animate-drift`) no gráfico do Hero — trade-off deliberado entre performance pura e percepção de qualidade visual
 
 ## SEO técnico
 
@@ -77,7 +81,7 @@ Camada de analytics centralizada em `src/lib/analytics.ts`: cada tipo de evento 
 | `form_submit` | Envio do formulário completo                 | `form_name`                   |
 | `faq_toggle`  | Abertura ou fechamento de pergunta           | `faq_question`, `faq_state`   |
 
-`section_view` foi desenhado mas não implementado — exige `IntersectionObserver`, deixado como próximo passo por escopo de tempo.
+`trackSectionView` está implementada em `analytics.ts` e a infraestrutura de detecção de scroll já existe (`src/hooks/use-reveal.ts`, via `IntersectionObserver`, hoje usada para o efeito visual de entrada das seções — `src/components/ui/reveal.tsx`). As duas peças não foram conectadas por escopo de tempo: falta chamar `trackSectionView` dentro do callback do `useReveal`.
 
 ## Testes
 

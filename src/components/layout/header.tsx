@@ -47,8 +47,8 @@ export function Header() {
       )}
     >
       <div className="shell flex h-16 items-center justify-between">
-        <a href="#hero" className="font-mono text-sm tracking-wide text-paper">
-          VSat<span className="text-signal">·</span>Qualidade
+        <a href="#hero" className="font-mono text-base md:text-lg tracking-wide text-paper">
+          VSat<span className="text-signal"> · </span>Qualidade
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
