@@ -103,6 +103,11 @@
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
     }
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }
 
@@ -148,5 +153,18 @@
     letter-spacing: 0.09em;
     text-transform: uppercase;
     color: var(--color-muted);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
